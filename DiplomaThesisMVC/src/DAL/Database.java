@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package DAL;
 import java.sql.*;
 
 /**
@@ -18,7 +18,8 @@ public class Database {
         Connection con=null;
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            con = DriverManager.getConnection("jdbc:mysql://fdb17.atspace.me/2550133_diplomathesis", "aruquense@gmail.com", "qwerty0000");
+            //con = DriverManager.getConnection("jdbc:mysql://fdb17.atspace.me:3306/2550133_diplomathesis", "aruquense@gmail.com", "qwerty0000");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/diplomathesisdb", "root", "");
             
             
         }catch(SQLException ex){

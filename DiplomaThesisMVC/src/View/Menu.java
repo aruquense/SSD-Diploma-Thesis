@@ -32,6 +32,9 @@ public class Menu extends javax.swing.JFrame {
         StudentPanel = new javax.swing.JPanel();
         jButtonSoT = new javax.swing.JButton();
         jButtonSDoDT = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         SupervisorPanel = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         DeanPanel = new javax.swing.JPanel();
@@ -57,6 +60,22 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("check Database");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("reset topics to all published");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("DEBUG OPTIONS");
+
         javax.swing.GroupLayout StudentPanelLayout = new javax.swing.GroupLayout(StudentPanel);
         StudentPanel.setLayout(StudentPanelLayout);
         StudentPanelLayout.setHorizontalGroup(
@@ -70,6 +89,15 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StudentPanelLayout.createSequentialGroup()
                         .addComponent(jButtonSDoDT)
                         .addGap(188, 188, 188))))
+            .addGroup(StudentPanelLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addGroup(StudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(StudentPanelLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(89, 89, 89)
+                        .addComponent(jButton2)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         StudentPanelLayout.setVerticalGroup(
             StudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,7 +106,13 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jButtonSoT)
                 .addGap(83, 83, 83)
                 .addComponent(jButtonSDoDT)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29)
+                .addGroup(StudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Student", StudentPanel);
@@ -214,6 +248,16 @@ public class Menu extends javax.swing.JFrame {
         Controller.ControllerStudent.SDoDTButton();
     }//GEN-LAST:event_jButtonSDoDTActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Controller.ControllerStudent.DatabaseButton2();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Controller.ControllerStudent.resetTopics();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -255,12 +299,15 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel SecretaryPanel;
     private javax.swing.JPanel StudentPanel;
     private javax.swing.JPanel SupervisorPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonSDoDT;
     private javax.swing.JButton jButtonSoT;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables

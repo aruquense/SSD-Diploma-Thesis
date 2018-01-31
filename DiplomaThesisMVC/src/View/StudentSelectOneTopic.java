@@ -6,6 +6,11 @@
 package View;
 
 import Controller.ControllerStudent;
+import java.awt.List;
+
+import DAL.Database;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +23,88 @@ public class StudentSelectOneTopic extends javax.swing.JFrame {
      */
     public StudentSelectOneTopic() {
         initComponents();
+    }
+
+    public StudentSelectOneTopic(java.util.List<String> topics) {
+
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        Cancel = new javax.swing.JButton();
+        Accept = new javax.swing.JButton();
+        Contact = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setText("Select one topic");
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            
+            String[] strings = topics.toArray(new String[0]);
+            public int getSize() { return topics.size(); }
+            public String getElementAt(int i) { return topics.get(i); }
+        });
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jList1.setToolTipText("");
+        jScrollPane1.setViewportView(jList1);
+
+        Cancel.setText("Cancel");
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
+
+        Accept.setText("Accept");
+        Accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AcceptActionPerformed(evt);
+            }
+        });
+
+        Contact.setText("Contact");
+        Contact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Accept)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addComponent(Contact)
+                        .addGap(80, 80, 80)
+                        .addComponent(Cancel)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cancel)
+                    .addComponent(Accept)
+                    .addComponent(Contact))
+                .addContainerGap())
+        );
+
+        pack();
+    
     }
 
     /**
@@ -36,20 +123,20 @@ public class StudentSelectOneTopic extends javax.swing.JFrame {
         Accept = new javax.swing.JButton();
         Contact = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Select one topic");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList1.setToolTipText("");
         jScrollPane1.setViewportView(jList1);
 
         Cancel.setText("Cancel");
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
 
         Accept.setText("Accept");
         Accept.addActionListener(new java.awt.event.ActionListener() {
@@ -105,12 +192,25 @@ public class StudentSelectOneTopic extends javax.swing.JFrame {
     private void AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptActionPerformed
         // TODO add your handling code here:
         ControllerStudent.AcceptTopic(jList1.getSelectedValue());
+        dispose();
+        View.Messages fm= new View.Messages();
+        //fm.setVisible(true);
+        //fm.setLocationRelativeTo(null);
+        
+            JOptionPane.showMessageDialog(fm, "SELECTED: " +jList1.getSelectedValue()) ;
+        
     }//GEN-LAST:event_AcceptActionPerformed
 
     private void ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactActionPerformed
         // TODO add your handling code here:
         ControllerStudent.ContactTopic(jList1.getSelectedValue());
+        
     }//GEN-LAST:event_ContactActionPerformed
+
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_CancelActionPerformed
 
     /**
      * @param args the command line arguments

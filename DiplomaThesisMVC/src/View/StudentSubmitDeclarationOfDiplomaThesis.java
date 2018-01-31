@@ -18,8 +18,14 @@ public class StudentSubmitDeclarationOfDiplomaThesis extends javax.swing.JFrame 
     /**
      * Creates new form StudentSubmitDeclarationOfDiplomaThesis
      */
+    public String path1;
+    public String path2;
+    
     public StudentSubmitDeclarationOfDiplomaThesis() {
         initComponents();
+    }
+    protected StudentSubmitDeclarationOfDiplomaThesis(String path){
+        this.path1=path;
     }
 
     /**
@@ -43,11 +49,12 @@ public class StudentSubmitDeclarationOfDiplomaThesis extends javax.swing.JFrame 
         jButtonSubmit = new javax.swing.JButton();
         jButtonCancel = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelSubmit.setText("Submit declaration");
 
         jTextPane1.setEditable(false);
+        jTextPane1.setText("fikhkh");
         jScrollPane2.setViewportView(jTextPane1);
 
         jButtonBrowseDeclarationOfDiplomaThesis.setText("Browse");
@@ -79,6 +86,11 @@ public class StudentSubmitDeclarationOfDiplomaThesis extends javax.swing.JFrame 
         });
 
         jButtonCancel.setText("Cancel");
+        jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,17 +157,20 @@ public class StudentSubmitDeclarationOfDiplomaThesis extends javax.swing.JFrame 
         View.FileManager fm= new View.FileManager();
         fm.setVisible(true);
         fm.setLocationRelativeTo(null);
-        jTextPane1.setText(fm.getFile());
-        System.out.println(fm.getFile());
-
+        jTextPane1.setText("jdkasldjskal");
+        //fm.jFileChooser1.getSelectedFile().toString();
+        //jTextPane1.setText(fm.getFile());
+        //System.out.println(fm.getFile());
+        
     }//GEN-LAST:event_jButtonBrowseDeclarationOfDiplomaThesisActionPerformed
 
     private void jButtonBrowseSignatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseSignatureActionPerformed
         // TODO add your handling code here:
         
-        View.FileManager fm= new View.FileManager();
-        fm.setVisible(true);
-        fm.setLocationRelativeTo(null);
+        View.Messages fm= new View.Messages();
+        jTextPane2.setText("123");
+        //fm.setVisible(true);
+        //fm.setLocationRelativeTo(null);
         
         if(1==1){
             JOptionPane.showMessageDialog(fm,"Topic not found");
@@ -165,6 +180,10 @@ public class StudentSubmitDeclarationOfDiplomaThesis extends javax.swing.JFrame 
         }
         
     }//GEN-LAST:event_jButtonBrowseSignatureActionPerformed
+
+    private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelActionPerformed
 
     /**
      * @param args the command line arguments

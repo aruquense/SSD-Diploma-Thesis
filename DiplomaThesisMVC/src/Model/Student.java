@@ -11,8 +11,10 @@ package Model;
  */
 public class Student {
    Integer ID;
+   Integer TopicID;
    String Name;
    String Surname;
+   
    
    public Student(){
        ID=0;
@@ -34,6 +36,10 @@ public class Student {
 
     public void setSurname(String Surname) {
         this.Surname = Surname;
+    }
+
+    public void setID(Integer id) {
+        this.ID=id;
     }
    
    

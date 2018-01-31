@@ -13,9 +13,11 @@ import java.io.File;
  */
 public class FileManager extends javax.swing.JFrame {
 
-    String getFile() {
+     void getFile() {
         //System.out.println(jFileChooser1.getSelectedFile().getPath());
-        return jFileChooser1.getSelectedFile().getPath();
+        
+        
+        //return jFileChooser1.getSelectedFile().getPath();
     }
 
     /**
@@ -36,7 +38,7 @@ public class FileManager extends javax.swing.JFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jFileChooser1.setDialogType(javax.swing.JFileChooser.SAVE_DIALOG);
         jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +69,20 @@ public class FileManager extends javax.swing.JFrame {
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
         // TODO add your handling code here:
-        System.out.println(jFileChooser1.getSelectedFile().getPath());
+        if (evt.getActionCommand()=="ApproveSelection"){
+            System.out.println("Selected!");
+            System.out.println(jFileChooser1.getSelectedFile().getPath());
+            //Controller.ControllerStudent.SoTButton();
+            //View.StudentSubmitDeclarationOfDiplomaThesis.jTextPane1.setText()
+            dispose();
+            //View.StudentSubmitDeclarationOfDiplomaThesis.
+            
+        }
+        if (evt.getActionCommand()=="CancelSelection"){
+            System.out.println("cancelled!");
+            dispose();
+        }
+        
     }//GEN-LAST:event_jFileChooser1ActionPerformed
 
     /**
