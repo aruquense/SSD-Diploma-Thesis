@@ -6,7 +6,7 @@
 package ModelDAO;
 import java.sql.*;
 
-import DAL.Database;
+import Model.Database;
 import Model.Student;
 
 /**

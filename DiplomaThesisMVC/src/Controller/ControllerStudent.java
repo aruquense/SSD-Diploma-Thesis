@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
-import DAL.Database;
+import Model.Database;
 
 /**
  *
@@ -29,7 +29,7 @@ public class ControllerStudent implements ActionListener{
     public static void DatabaseButton2() {
         
         
-        DAL.Database DB;
+        Model.Database DB;
         System.out.println("getStudent");
         Integer id = 1;
         String name = "John";
